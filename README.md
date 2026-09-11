@@ -62,10 +62,10 @@ A utilização dessas tecnologias adicionais não é obrigatória.
 A aplicação deverá permitir o gerenciamento das seguintes entidades:
 
 Devedor
-   ├── Contratos
-   │      └── Parcelas
    │
-   └── Telefones
+   ├─ Contratos
+   │   ├─ Parcelas
+   ├─ Telefones
 
 Além dos cadastros, deverá existir uma tela de distribuição de devedores/contratos/parcelas/telefones.
 
