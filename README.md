@@ -8,8 +8,6 @@ Este desafio é a porta de entrada para fazer parte desse time. Ele foi desenhad
 
 Não esperamos perfeição — esperamos raciocínio claro, código limpo e decisões justificadas. Mostre como você pensa e como você constrói.
 
----
-
 ## 1. Visão geral
 
 Construa uma solução web para gerenciamento de devedores, contratos, parcelas e telefones, incluindo uma funcionalidade de distribuição de registros baseada em critérios de negócio e a exportação de parcelas em aberto.
@@ -61,11 +59,13 @@ A utilização dessas tecnologias adicionais não é obrigatória.
 
 A aplicação deverá permitir o gerenciamento das seguintes entidades:
 
+```text
 Devedor
+   ├── Contratos
+   │      └── Parcelas
    │
-   ├─ Contratos
-   │   ├─ Parcelas
-   ├─ Telefones
+   └── Telefones
+```
 
 Além dos cadastros, deverá existir uma tela de distribuição de devedores/contratos/parcelas/telefones.
 
@@ -81,11 +81,12 @@ A lógica principal da distribuição deverá ser implementada em Stored Procedu
 
 Implementar um CRUD completo de devedores.
 
-|Campo					|Tipo	|Obrigatório|
-|CPF					|Texto	|Sim		|
-|Nome					|Texto	|Sim		|
-|Data de nascimento		|Data	|Sim		|
-|Sexo					|M/F	|Sim		|
+| Campo | Tipo | Obrigatório |
+|---|---|---|
+| CPF | Texto | Sim |
+| Nome | Texto | Sim |
+| Data de nascimento | Data | Sim |
+| Sexo | M/F | Sim |
 
 Funcionalidades
 A tela deverá permitir:
@@ -108,11 +109,12 @@ A máscara poderá ser aplicada na apresentação.
 
 Cada devedor poderá possuir um ou mais contratos.
 
-|Campo					|Tipo		|Obrigatório|
-|Devedor				|FK			|Sim		|
-|Número do contrato		|Texto		|Sim		|
-|Produto				|Texto		|Sim		|
-|Plano					|Inteiro	|Sim		|
+| Campo | Tipo | Obrigatório |
+|---|---|---|
+| Devedor | FK | Sim |
+| Número do contrato | Texto | Sim |
+| Produto | Texto | Sim |
+| Plano | Inteiro | Sim |
 
 Funcionalidades
 Implementar:
@@ -135,13 +137,14 @@ O número do contrato deverá ser único.
 
 Cada contrato deverá possuir uma ou mais parcelas.
 
-|Campo					|Tipo		|Obrigatório|
-|Contrato				|FK			|Sim		|
-|Número da parcela		|Inteiro	|Sim		|
-|Data de vencimento		|Data		|Sim		|
-|Valor da parcela		|Decimal	|Sim		|
-|Situação da parcela	|Texto/Enum	|Sim		|
-|Data de devolução		|Data		|Não		|
+| Campo | Tipo | Obrigatório |
+|---|---|---|
+| Contrato | FK | Sim |
+| Número da parcela | Inteiro | Sim |
+| Data de vencimento | Data | Sim |
+| Valor da parcela | Decimal | Sim |
+| Situação da parcela | Texto/Enum | Sim |
+| Data de devolução | Data | Não |
 
 Situações
 A aplicação deverá contemplar, no mínimo:
@@ -168,12 +171,13 @@ Somente parcelas consideradas em aberto deverão participar da distribuição/ex
 
 Cada devedor poderá possuir um ou mais telefones.
 
-|Campo		|Tipo		|Obrigatório|
-|Devedor	|FK			|Sim		|
-|DDD		|Inteiro	|Sim		|
-|Número		|Inteiro	|Sim		|
-|WhatsApp	|Texto/Enum	|Sim		|
-|Prioridade	|Inteiro	|Sim		|
+| Campo | Tipo | Obrigatório |
+|---|---|---|
+| Devedor | FK | Sim |
+| DDD | Inteiro | Sim |
+| Número | Inteiro | Sim |
+| WhatsApp | Texto/Enum | Sim |
+| Prioridade | Inteiro | Sim |
 
 Funcionalidades
 Implementar:
@@ -184,7 +188,7 @@ Implementar:
 - Excluir telefone;
 - Pesquisa por número;
 
-````
+```
 Quanto menor o número da prioridade, maior a prioridade do telefone.
 ```
 
@@ -219,29 +223,25 @@ A aplicação deverá apenas receber os parâmetros informados pelo usuário, ch
 ### 6.1. Contrato
 A tela deverá permitir filtrar por:
 
-Produto;
-Plano.
+- Produto;
+- Plano.
+
 Exemplo:
 
-Produto: Consignado
-Plano: Plano A
+- Produto: Consignado
+- Plano: Plano A
 
 ### 6.2. Parcela
 A distribuição deverá permitir trabalhar com:
 
-faixa de atraso;
-data de vencimento.
+- faixa de atraso;
+- data de vencimento.
+  
 Exemplo:
 
-Faixa de atraso:
-0 a 30 dias
-
-Data de vencimento:
-01/08/2026 até 31/08/2026
-
-Os dias de atraso poderão ser calculados considerando a data atual:
-
-Dias de atraso = Data atual - Data de vencimento
+- Faixa de atraso: 0 a 30 dias
+- Data de vencimento: 01/08/2026 até 31/08/2026
+- Os dias de atraso poderão ser calculados considerando a data atual: Dias de atraso = Data atual - Data de vencimento
 
 Somente parcelas em aberto deverão ser consideradas.
 
@@ -250,9 +250,9 @@ A distribuição deverá considerar a prioridade dos telefones.
 
 Exemplo:
 
-Telefone A → Prioridade 1
-Telefone B → Prioridade 2
-Telefone C → Prioridade 3
+- Telefone A → Prioridade 1
+- Telefone B → Prioridade 2
+- Telefone C → Prioridade 3
 
 O telefone de maior prioridade deverá ser considerado antes dos demais.
 
@@ -289,8 +289,8 @@ O candidato deverá documentar no próprio README:
 
 Considere o seguinte cenário:
 
-Operador A → executa distribuição
-Operador B → executa distribuição simultaneamente
+- Operador A → executa distribuição
+- Operador B → executa distribuição simultaneamente
 
 A solução deverá considerar como evitar que a mesma informação seja distribuída indevidamente para os dois operadores.
 
@@ -315,6 +315,7 @@ A aplicação deverá passar os parâmetros necessários para a procedure.
 
 Exemplo conceitual:
 
+```ts
 EXEC dbo.sp_Distribuir
      @Produto = 'Consignado',
      @Plano = 'Plano A',
@@ -322,7 +323,7 @@ EXEC dbo.sp_Distribuir
      @DiasAtrasoFinal = 30,
      @DataVencimentoInicial = '2026-08-01',
      @DataVencimentoFinal = '2026-08-31';
-
+```
 O nome, parâmetros e implementação ficam a critério do candidato.
 
 A procedure deverá ser entregue junto com o projeto.
@@ -333,9 +334,9 @@ Onde `YYYYMMDD` siginifica o ano, mês e dia e `INICIAIS` significa as iniciais 
 
 Exemplo:
 
-Data da criação: 11/09/2026
-Candidato: Fulano da Silva Junior
-Stored Procedure: `dbo.Distribuir20260911FSJ``
+- Data da criação: 11/09/2026
+- Candidato: Fulano da Silva Junior
+- Stored Procedure: `dbo.Distribuir20260911FSJ``
 
 ---
 
@@ -384,10 +385,10 @@ SQL Server
 
 Poderão ser utilizados:
 
-Fetch API;
-XMLHttpRequest;
-jQuery AJAX.
-A escolha deverá ser documentada.
+- Fetch API;
+- XMLHttpRequest;
+- jQuery AJAX.
+- A escolha deverá ser documentada.
 
 ---
 
@@ -395,17 +396,20 @@ A escolha deverá ser documentada.
 
 A aplicação deverá permitir exportar as parcelas em aberto para:
 
-TXT; ou
-CSV.
+- TXT; ou
+- CSV.
+- 
 O arquivo deverá utilizar o seguinte layout:
 
 CPF;Nome;Contrato;Produto;Plano;Parcela;Vencimento;DDD;Telefone;WhatsApp;Prioridade
 
 Exemplo:
 
+```
 11111111111;João da Silva;123456;Consignado;24;3;10/08/2026;11;999999999;Sim;1
 22222222222;Maria Souza;654321;Consignado;60;5;15/08/2026;11;988888888;Sim;1
 22222222222;Maria Souza;654321;Consignado;60;5;15/08/2026;11;977777777;Não;2
+```
 
 Regras
 1. Separador: ;
@@ -428,13 +432,14 @@ O candidato deverá entregar scripts SQL para criação do banco.
 
 A modelagem deverá contemplar, no mínimo, as seguintes entidades:
 
-Devedores
-Contratos
-Parcelas
-Telefones
+- Devedores
+- Contratos
+- Parcelas
+- Telefones
 
 Uma estrutura conceitual esperada é:
 
+```
 Devedores
 ---------
 Id
@@ -469,6 +474,7 @@ DDD
 Numero
 WhatsApp
 Prioridade
+```
 
 A implementação da modelagem fica a critério do candidato.
 
@@ -578,7 +584,7 @@ Não será exigida uma arquitetura específica.
 Entretanto, será avaliada a organização da solução.
 
 Por exemplo:
-
+```
 Web
  ├── Controllers
  ├── Views
@@ -593,7 +599,7 @@ Application
 Infrastructure
  ├── Repositories
  └── Database
-
+```
 O candidato poderá utilizar outra estrutura, desde que seja coerente e justifique suas decisões.
 
 ---
@@ -614,7 +620,7 @@ O repositório deverá conter:
 - Arquivo TXT/CSV de exemplo.
 
 Sugestão de estrutura:
-
+```
 /
 ├── README.md
 ├── src/
@@ -630,9 +636,9 @@ Sugestão de estrutura:
 ├── docs/
 │   └── ...
 │
-└── samples/
+└── files/
     └── parcelas-abertas.csv
-
+```
 A estrutura acima é apenas uma sugestão.
 
 ---
@@ -788,26 +794,28 @@ As instruções deverão estar suficientemente detalhadas para que o projeto pos
 
 A avaliação será realizada considerando a qualidade geral da solução.
 
-|Critério							|Pontos|
-|Modelagem SQL						|15    |
-|CRUD de Devedores					|10    |
-|CRUD de Contratos e Parcelas		|10    |
-|CRUD de Telefones					|5     |
-|Stored Procedure / Distribuição	|20    |
-|Backend / C# / .NET				|10    |
-|HTML / CSS / JavaScript / AJAX		|10    |
-|Exportação TXT/CSV					|5     |
-|Validações							|5     |
-|Arquitetura / Organização			|5     |
-|Segurança / Performance			|5     |
-|Total								|100   |
+| Critério | Pontos |
+|---|---|
+| Modelagem SQL | 15 |
+| CRUD de Devedores | 10 |
+| CRUD de Contratos e Parcelas | 10 |
+| CRUD de Telefones | 5 |
+| Stored Procedure / Distribuição | 20 |
+| Backend / C# / .NET | 10 |
+| HTML / CSS / JavaScript / AJAX | 10 |
+| Exportação TXT/CSV | 5 |
+| Validações | 5 |
+| Arquitetura / Organização | 5 |
+| Segurança / Performance | 5 |
+| Total | 100 |
 
-|Pontuação	|Avaliação			|
-|90–100		|Excelente          |
-|75–89		|Muito bom          |
-|60–74		|Bom                |
-|50–59		|Abaixo do esperado |
-|0–49		|Não recomendado    |
-            
+| Pontuação | Avaliação |
+|---|---|
+| 90–100 | Excelente |
+| 75–89 | Muito bom |
+| 60–74 | Bom |
+| 50–5 | Abaixo do esperado |
+| 0–49 | Não recomendado |
+           
 A classificação é apenas uma referência. 
 A avaliação poderá considerar também a experiência esperada para a posição.
