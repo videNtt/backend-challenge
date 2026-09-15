@@ -4,9 +4,13 @@
 
 O **Grupo Aval / Toledo Piza Advogados Associados** é uma empresa brasileira com mais de 45 anos de experiência especializada em serviços de recuperação de crédito e soluções financeiras.
 
-Este desafio é a porta de entrada para fazer parte desse time. Ele foi desenhado para refletir problemas reais do nosso dia a dia: sistemas distribuídos, tempo real, experiência de usuário e arquitetura bem pensada.
+Este desafio é a porta de entrada para fazer parte desse time.
 
-Não esperamos perfeição — esperamos raciocínio claro, código limpo e decisões justificadas. Mostre como você pensa e como você constrói.
+Ele foi desenhado para refletir problemas reais do nosso dia a dia: sistemas distribuídos, tempo real, experiência de usuário e arquitetura bem pensada.
+
+Não esperamos perfeição — esperamos raciocínio claro, código limpo e decisões justificadas.
+
+Mostre como você pensa e como você constrói.
 
 ## 1. Visão geral
 
@@ -16,7 +20,9 @@ A solução deverá ser desenvolvida utilizando boas práticas de programação,
 
 Este teste técnico tem como objetivo avaliar conhecimentos práticos de desenvolvimento de aplicações web utilizando **.NET, C#, SQL Server, HTML, CSS, JavaScript e AJAX**, além da capacidade de análise e implementação de regras de negócio.
 
-Importante: o objetivo não é avaliar apenas se o candidato consegue implementar telas de CRUD. A análise da modelagem, arquitetura, SQL, Stored Procedures, regras de negócio e decisões técnicas faz parte da avaliação.
+Importante: o objetivo não é avaliar apenas se o candidato consegue implementar telas de CRUD.
+
+A análise da modelagem, arquitetura, SQL, Stored Procedures, regras de negócio e decisões técnicas faz parte da avaliação.
 
 ---
 
@@ -262,8 +268,6 @@ O telefone de maior prioridade deverá ser considerado antes dos demais.
 
 O candidato deverá analisar os requisitos apresentados e definir uma estratégia de distribuição.
 
-Não é necessário que este README forneça toda a regra pronta.
-
 Faz parte do teste avaliar a capacidade do candidato de:
 
 - Interpretar requisitos;
@@ -328,15 +332,18 @@ O nome, parâmetros e implementação ficam a critério do candidato.
 
 A procedure deverá ser entregue junto com o projeto.
 
-```A Stored Procedure deve ser nomeada no seguinte padrão: ``` `dbo.sp_DistribuirYYYYMMDDINICIAIS`
+```A Stored Procedure deve ser nomeada no seguinte padrão: ```
+```ts
+dbo.sp_DistribuirYYYYMMDDINICIAIS
+```
 
 Onde `YYYYMMDD` siginifica o ano, mês e dia e `INICIAIS` significa as iniciais do seu nome completo.
 
 Exemplo:
 
 - Data da criação: 11/09/2026
-- Candidato: Fulano da Silva Junior
-- Stored Procedure: `dbo.Distribuir20260911FSJ``
+- Candidato: Fulano de Tal Junior
+- Stored Procedure: `dbo.Distribuir20260911FTJ``
 
 ---
 
@@ -367,6 +374,7 @@ As operações de consulta e distribuição deverão utilizar AJAX sempre que te
 
 Exemplo de fluxo esperado:
 
+```
 Browser
    ↓
 JavaScript
@@ -382,6 +390,7 @@ Repository
 Stored Procedure
    ↓
 SQL Server
+```
 
 Poderão ser utilizados:
 
@@ -399,9 +408,10 @@ A aplicação deverá permitir exportar as parcelas em aberto para:
 - TXT; ou
 - CSV.
 
-O arquivo deverá utilizar o seguinte layout:
-
+O cabeçalho deverá respeitar exatamente:
+```
 CPF;Nome;Contrato;Produto;Plano;Parcela;Vencimento;DDD;Telefone;WhatsApp;Prioridade
+````
 
 Exemplo:
 
@@ -418,11 +428,6 @@ Regras
 4. Datas deverão possuir formato consistente;
 5. O encoding deverá ser informado no README;
 6. Não deverão ser exportadas parcelas que não estejam em aberto.
-
-O cabeçalho deverá respeitar exatamente:
-```
-CPF;Nome;Contrato;Produto;Plano;Parcela;Vencimento;DDD;Telefone;WhatsApp;Prioridade
-````
 
 ---
 
@@ -502,7 +507,7 @@ A massa deverá ser suficiente para demonstrar o funcionamento da aplicação.
 
 Como referência, recomendamos:
 
-- Pelo menos 20 devedores;
+- Pelo menos 200 devedores;
 - Alguns devedores com múltiplos contratos;
 - Alguns contratos com múltiplas parcelas;
 - Alguns devedores com múltiplos telefones;
@@ -651,25 +656,25 @@ Tecnologias utilizadas.
 
 Descrever:
 
-- versão do .NET;
-- versão do SQL Server;
-- bibliotecas utilizadas;
-- frameworks utilizados.
+- Versão do .NET;
+- Versão do SQL Server;
+- Bibliotecas utilizadas;
+- Frameworks utilizados.
 - Arquitetura
 Explicar a arquitetura escolhida e o motivo.
 
 Banco de dados.
 Explicar:
 
-- principais tabelas;
-- relacionamentos;
-- índices;
-- constraints.
+- Principais tabelas;
+- Relacionamentos;
+- Índices;
+- Constraints.
 - Distribuição
 
 Explicar detalhadamente:
 
-- critérios utilizados;
+- Critérios utilizados;
 - Regras implementadas;
 - Stored Procedure;
 - Tratamento de concorrência;
@@ -758,6 +763,7 @@ Recomenda-se utilizar commits pequenos e descritivos durante o desenvolvimento.
 
 Exemplo:
 
+```
 feat: cria estrutura inicial do projeto
 feat: implementa cadastro de devedores
 feat: implementa cadastro de contratos
@@ -769,6 +775,7 @@ feat: adiciona tela de distribuição
 fix: corrige erro na tela de distribuição
 feat: adiciona exportação de parcelas
 docs: adiciona instruções de instalação
+```
 
 ---
 
