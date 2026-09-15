@@ -611,7 +611,6 @@ O candidato poderá utilizar outra estrutura, desde que seja coerente e justifiq
 
 ## 17. Entregáveis
 
-Entregáveis
 O repositório deverá conter:
 
 - Código-fonte completo;
@@ -664,6 +663,7 @@ Descrever:
 Explicar a arquitetura escolhida e o motivo.
 
 Banco de dados.
+
 Explicar:
 
 - Principais tabelas;
