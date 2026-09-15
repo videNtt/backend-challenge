@@ -398,7 +398,7 @@ A aplicação deverá permitir exportar as parcelas em aberto para:
 
 - TXT; ou
 - CSV.
-- 
+
 O arquivo deverá utilizar o seguinte layout:
 
 CPF;Nome;Contrato;Produto;Plano;Parcela;Vencimento;DDD;Telefone;WhatsApp;Prioridade
@@ -643,11 +643,12 @@ A estrutura acima é apenas uma sugestão.
 
 ---
 
-## 18. README do candidato
+## 18. README do candidato - Obrigatório
 
 Além deste documento, o candidato deverá complementar o README do projeto com:
 
-Tecnologias utilizadas
+Tecnologias utilizadas.
+
 Descrever:
 
 - versão do .NET;
@@ -657,7 +658,7 @@ Descrever:
 - Arquitetura
 Explicar a arquitetura escolhida e o motivo.
 
-Banco de dados
+Banco de dados.
 Explicar:
 
 - principais tabelas;
@@ -674,7 +675,8 @@ Explicar detalhadamente:
 - Tratamento de concorrência;
 - Decisões tomadas.
 
-Exportação
+Exportação.
+
 Explicar:
 
 - Formato escolhido;
@@ -686,7 +688,7 @@ Explicar:
 
 ---
 
-## 19. README do candidato
+## 19. README do candidato - Opcionais
 
 Os itens abaixo não são obrigatórios, mas poderão ser considerados diferenciais:
 
